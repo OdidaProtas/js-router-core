@@ -7,22 +7,26 @@ const pages = [{path:"/", html:"<b>Home</b>"}, {path:"/about", html:"<b>About</b
 
 const pageRoutes = urlPatterns(pages)
 
-const [routeHmtl, params] = router(pageRoutes)
+let pathname = "/" // from url
+
+let subdomain = "" // optional
+
+const [routeHmtl, params] = router({routes:pageRoutes, pathname, subdomain } )
 
 
 
 console.log(routeHtml, params)
 
-HOME URL -> // /
+  // /
   <b>Home</a>, {}
   
-HOME URL -> // /about
+// /about
   <b>About</a>, {}
   
- HOME URL -> // /profile/123
+ // /profile/123
   <b>Profile</a>, {id:123}
   
-  HOME URL -> // /heh
+  // /heh
   undefined, {}
 
 ```
